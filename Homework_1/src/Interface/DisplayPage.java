@@ -9,6 +9,7 @@ import Business.CreditCard;
 import Business.FinancialAccounts;
 import Business.LicenseData;
 import Business.Person;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -28,6 +29,8 @@ public class DisplayPage extends javax.swing.JPanel {
     
     private void displayDetails(Person person)
     {
+        ImageIcon yourpicture= new ImageIcon(person.getDisplaypicture());
+        displaypicturepane.setIcon(yourpicture);
     String personName=person.getName();
     personNameTxt.setText(personName);
     
@@ -219,6 +222,8 @@ public class DisplayPage extends javax.swing.JPanel {
         personNameTxt = new javax.swing.JTextField();
         personAgeTxt = new javax.swing.JTextField();
         personGenderTxt = new javax.swing.JTextField();
+        jLabel38 = new javax.swing.JLabel();
+        displaypicturepane = new javax.swing.JLabel();
 
         DisplayHeading.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         DisplayHeading.setText("Display Details");
@@ -403,6 +408,8 @@ public class DisplayPage extends javax.swing.JPanel {
 
         personGenderTxt.setText("               ");
 
+        jLabel38.setText("See Your Picture");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -539,10 +546,6 @@ public class DisplayPage extends javax.swing.JPanel {
                     .addComponent(chCreditTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(129, 129, 129))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(DisplayHeading)
-                .addGap(359, 359, 359))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -553,6 +556,16 @@ public class DisplayPage extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel18)
                         .addGap(124, 124, 124))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(jLabel38)
+                .addGap(29, 29, 29)
+                .addComponent(displaypicturepane, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(DisplayHeading)
+                .addGap(359, 359, 359))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -669,7 +682,13 @@ public class DisplayPage extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ccardCvvTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))
-                        .addGap(172, 172, 172))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(63, 63, 63)
+                                .addComponent(jLabel38))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(displaypicturepane, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel37)
@@ -690,7 +709,7 @@ public class DisplayPage extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(svCreditTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel33))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -765,6 +784,7 @@ public class DisplayPage extends javax.swing.JPanel {
     private javax.swing.JTextField chCreationDateTxt;
     private javax.swing.JTextField chCreditTxt;
     private javax.swing.JTextField chDebitTxt;
+    private javax.swing.JLabel displaypicturepane;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -796,6 +816,7 @@ public class DisplayPage extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

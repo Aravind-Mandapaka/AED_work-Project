@@ -10,6 +10,7 @@ import Business.CreditCard;
 import Business.FinancialAccounts;
 import Business.LicenseData;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -303,6 +304,12 @@ public class CreatePage extends javax.swing.JPanel {
         personAgeTxt.setText("                ");
 
         personGenderTxt.setText("               ");
+
+        jFileChooser1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFileChooser1ActionPerformed(evt);
+            }
+        });
 
         jLabel38.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jLabel38.setText("Upload Your Profile Picture");
@@ -653,6 +660,17 @@ public class CreatePage extends javax.swing.JPanel {
         person.setContact(personMobileTxt.getText());
         person.setAddress(personAddressTxt.getText());
         
+        FileNameExtensionFilter photo = new FileNameExtensionFilter("JPG files","jpg");
+        jFileChooser1.setFileFilter(photo);
+        person.setDisplaypicture(jFileChooser1.getSelectedFile().getAbsolutePath());
+        
+        
+        
+        
+        
+        
+        
+        
         
         Address address = new Address();
         address.setAptName(addressAptNameTxt.getText());
@@ -700,6 +718,11 @@ JOptionPane.showMessageDialog(null,"User Details Recored Successfully");
 
 // TODO add your handling code here:
     }//GEN-LAST:event_CreateBtnActionPerformed
+
+    private void jFileChooser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFileChooser1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jFileChooser1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

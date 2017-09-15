@@ -19,11 +19,19 @@ public class Person {
     private String gender;
     private String contact;
     private String Address;
-    
+    private String displaypicture;
     private LicenseData licenseData;
     private FinancialAccounts financialAccounts;
     private CreditCard creditCard;
     private Address homeAdress;
+
+    public String getDisplaypicture() {
+        return displaypicture;
+    }
+
+    public void setDisplaypicture(String displaypicture) {
+        this.displaypicture = displaypicture;
+    }
 
     public String getName() {
         return name;
