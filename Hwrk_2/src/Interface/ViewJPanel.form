@@ -26,7 +26,7 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="410" max="-2" attributes="0"/>
-              <EmptySpace pref="133" max="32767" attributes="0"/>
+              <EmptySpace pref="135" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
@@ -65,12 +65,12 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="MaxSeatsTxtBox" min="-2" pref="185" max="-2" attributes="0"/>
+                                  <Component id="ModelNotextBox" min="-2" pref="185" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                                  <Component id="MinSeatsTxtBox" min="-2" pref="185" max="-2" attributes="0"/>
+                                  <Component id="AvailableStatustxtbox" min="-2" pref="185" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -125,12 +125,12 @@
                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="MaxSeatsTxtBox" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="ModelNotextBox" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="MinSeatsTxtBox" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="AvailableStatustxtbox" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -167,14 +167,14 @@
         <Property name="text" type="java.lang.String" value="Serial No :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="MinSeatsTxtBox">
+    <Component class="javax.swing.JTextField" name="AvailableStatustxtbox">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
         <Property name="text" type="java.lang.String" value="Airline :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="MaxSeatsTxtBox">
+    <Component class="javax.swing.JTextField" name="ModelNotextBox">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
@@ -199,7 +199,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Minimum Seats :"/>
+        <Property name="text" type="java.lang.String" value="Available Status"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="AirportNameTxtBox">
@@ -216,7 +216,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Max Seats :"/>
+        <Property name="text" type="java.lang.String" value="Model No"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="MfgYearTxtBox">
@@ -233,6 +233,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Update"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UpdateBtnActionPerformed"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
@@ -241,14 +244,14 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="viewtable">
+        <Component class="javax.swing.JTable" name="ViewupdateTable">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="4" rowCount="4">
-                <Column editable="false" title="Airline Name" type="java.lang.Object"/>
                 <Column editable="false" title="Serial No" type="java.lang.Object"/>
-                <Column editable="false" title="Manufacturer Name" type="java.lang.Object"/>
-                <Column editable="false" title="Airport Name" type="java.lang.Object"/>
+                <Column editable="false" title="Airline Name" type="java.lang.Object"/>
+                <Column editable="false" title="Maintanance Status" type="java.lang.Object"/>
+                <Column editable="false" title="Manufacturer" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

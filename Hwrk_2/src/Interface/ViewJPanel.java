@@ -7,6 +7,7 @@ package Interface;
 
 import Business.Aeroplane;
 import Business.Aeroplanelist;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -29,7 +30,7 @@ private Aeroplanelist al;
     }
 public void addintoTable()
 {
-    DefaultTableModel dtm = (DefaultTableModel)viewtable.getModel();
+    DefaultTableModel dtm = (DefaultTableModel)ViewupdateTable.getModel();
     dtm.setRowCount(0);
     
     for(Aeroplane a: al.getAirplanelist())
@@ -40,9 +41,22 @@ public void addintoTable()
           row[2] = a.getMaintanenceStatus();
           row[3] = a.getManufacturerName();
           row[4] = a.getAirportName();
+          row[5] = a.getAvailableStatus();
+          row[6] = a.getNoofseats();
+          row[7] = a.getYearofManufacture();
+          row[8] = a.getModelno();
+          row[9] = a.getSerialNumber();
+          
            dtm.addRow(row);
         }
+          
+    
+      int selectedrow = ViewupdateTable.getSelectedRow();
+       
+       
+      // else
            
+    
         
         }       
         
@@ -58,9 +72,9 @@ public void addintoTable()
         jLabel3 = new javax.swing.JLabel();
         MaintanenceCertificateTxtbox = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        MinSeatsTxtBox = new javax.swing.JTextField();
+        AvailableStatustxtbox = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        MaxSeatsTxtBox = new javax.swing.JTextField();
+        ModelNotextBox = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         AirlineNameTxtBox = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -76,7 +90,7 @@ public void addintoTable()
         ViewBtn = new javax.swing.JButton();
         UpdateBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        viewtable = new javax.swing.JTable();
+        ViewupdateTable = new javax.swing.JTable();
         jLabel10 = new javax.swing.JLabel();
 
         jLabel3.setText("Available Seats :");
@@ -91,7 +105,7 @@ public void addintoTable()
 
         jLabel8.setText("Maintanence Certificate :");
 
-        jLabel9.setText("Minimum Seats :");
+        jLabel9.setText("Available Status");
 
         jLabel1.setText("Manufacturer :");
 
@@ -101,7 +115,7 @@ public void addintoTable()
             }
         });
 
-        jLabel2.setText("Max Seats :");
+        jLabel2.setText("Model No");
 
         ViewBtn.setText("View");
         ViewBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -111,8 +125,13 @@ public void addintoTable()
         });
 
         UpdateBtn.setText("Update");
+        UpdateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateBtnActionPerformed(evt);
+            }
+        });
 
-        viewtable.setModel(new javax.swing.table.DefaultTableModel(
+        ViewupdateTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -120,7 +139,7 @@ public void addintoTable()
                 {null, null, null, null}
             },
             new String [] {
-                "Airline Name", "Serial No", "Manufacturer Name", "Airport Name"
+                "Serial No", "Airline Name", "Maintanance Status", "Manufacturer"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -131,7 +150,7 @@ public void addintoTable()
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(viewtable);
+        jScrollPane1.setViewportView(ViewupdateTable);
 
         jLabel10.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel10.setText("View and Update Details");
@@ -149,7 +168,7 @@ public void addintoTable()
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(63, 63, 63)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel8)
@@ -182,11 +201,11 @@ public void addintoTable()
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(jLabel2)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(MaxSeatsTxtBox, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(ModelNotextBox, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(jLabel9)
                                     .addGap(60, 60, 60)
-                                    .addComponent(MinSeatsTxtBox, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(AvailableStatustxtbox, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addComponent(jLabel6))
                 .addGap(41, 41, 41))
             .addGroup(layout.createSequentialGroup()
@@ -227,11 +246,11 @@ public void addintoTable()
                         .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(MaxSeatsTxtBox, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(ModelNotextBox, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
-                            .addComponent(MinSeatsTxtBox, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(AvailableStatustxtbox, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(8, 8, 8)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
@@ -253,22 +272,74 @@ public void addintoTable()
     }//GEN-LAST:event_MfgNameTxtboxActionPerformed
 
     private void ViewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewBtnActionPerformed
+ int selectedrow=0;
+        if(selectedrow >=0)
+       {
+        
+           Aeroplane aep = (Aeroplane)ViewupdateTable.getValueAt(selectedrow, 0);
+         AirlineNameTxtBox.setText(String.valueOf(aep.getAirlinename()));
+         AirportNameTxtBox.setText(String.valueOf(aep.getAirportName()));
+         AvailableSeatsTxtBox.setText(String.valueOf(aep.getNoofseats()));
+         AvailableStatustxtbox.setText(String.valueOf(aep.getAvailableStatus()));
+          MaintanenceCertificateTxtbox.setText(String.valueOf(aep.getMaintanenceStatus()));
+         
+          MfgNameTxtbox.setText(String.valueOf(aep.getManufacturerName()));
+         SerialNoTxtBox.setText(String.valueOf(aep.getSerialNumber()));
+          MfgYearTxtBox.setText(String.valueOf(aep.getYearofManufacture()));
+          ModelNotextBox.setText(String.valueOf(aep.getModelno()));
+       } 
+       else
+       {
+          JOptionPane.showMessageDialog(null,"Select any row");     
+       }
+// txtBloodPressure.setText(String.valueOf(vs.getBloodPressure()));
+           
+       
+
+
         // TODO add your handling code here:
     }//GEN-LAST:event_ViewBtnActionPerformed
+
+    private void UpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateBtnActionPerformed
+
+     
+    DefaultTableModel dtm = (DefaultTableModel)ViewupdateTable.getModel();
+    int rowselect = ViewupdateTable.getSelectedRow();
+      if(rowselect >=0)
+      {
+          Aeroplane aep = (Aeroplane)ViewupdateTable.getValueAt(rowselect,0);
+          al.deleteValues(aep);
+           
+          Aeroplane apn = al.addAeroplanes();
+          
+          apn.setAirlinename(AirlineNameTxtBox.getText());
+          apn.setAirportName(AirportNameTxtBox.getText());
+          apn.setAvailableStatus(AvailableStatustxtbox.getText());
+          apn.setMaintanenceStatus(MaintanenceCertificateTxtbox.getText());
+          apn.setManufacturerName(MfgNameTxtbox.getText());
+          apn.setModelno(ModelNotextBox.getText());
+          apn.setNoofseats(Integer.parseInt(AvailableSeatsTxtBox.getText()));
+          apn.setSerialNumber(Integer.parseInt(SerialNoTxtBox.getText()));
+          apn.setYearofManufacture(Integer.parseInt(MfgYearTxtBox.getText()));
+      }
+      addintoTable();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UpdateBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AirlineNameTxtBox;
     private javax.swing.JTextField AirportNameTxtBox;
     private javax.swing.JTextField AvailableSeatsTxtBox;
+    private javax.swing.JTextField AvailableStatustxtbox;
     private javax.swing.JTextField MaintanenceCertificateTxtbox;
-    private javax.swing.JTextField MaxSeatsTxtBox;
     private javax.swing.JTextField MfgNameTxtbox;
     private javax.swing.JTextField MfgYearTxtBox;
-    private javax.swing.JTextField MinSeatsTxtBox;
+    private javax.swing.JTextField ModelNotextBox;
     private javax.swing.JTextField SerialNoTxtBox;
     private javax.swing.JButton UpdateBtn;
     private javax.swing.JButton ViewBtn;
+    private javax.swing.JTable ViewupdateTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -280,7 +351,6 @@ public void addintoTable()
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable viewtable;
     // End of variables declaration//GEN-END:variables
 
     

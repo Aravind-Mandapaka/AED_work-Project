@@ -32,11 +32,15 @@ public Aeroplane addAeroplanes()
     Aeroplane ap = new Aeroplane();
     airplanelist.add(ap);
     return ap;
-    
-            
-            
-            
+        
      }
+
+public void deleteValues(Aeroplane y)
+  {
+      airplanelist.remove(y);
+      
+  
+  }
     //public void setAirplane(ArrayList<Aeroplane> airplanelist) {
       //  this.airplanelist = airplanelist;
    // }
