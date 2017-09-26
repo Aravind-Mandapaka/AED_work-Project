@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package Business;
-
 import java.util.ArrayList;
 
 /**
@@ -12,28 +11,34 @@ import java.util.ArrayList;
  * @author aravind
  */
 public class Aeroplanelist {
-    private ArrayList<Aeroplane> airplane;
+    private ArrayList<Aeroplane> airplanelist;
     
     public Aeroplanelist()
             {
-          airplane = new ArrayList<Aeroplane>();
+          airplanelist = new ArrayList<Aeroplane>();
             }
 
-    public ArrayList<Aeroplane> getAirplane() {
-        return airplane;
+    public ArrayList<Aeroplane> getAirplanelist() {
+        return airplanelist;
     }
+
+    public void setAirplanelist(ArrayList<Aeroplane> airplanelist) {
+        this.airplanelist = airplanelist;
+    }
+
+    
 public Aeroplane addAeroplanes()
      {
     Aeroplane ap = new Aeroplane();
-    Aeroplanelist.add(ap);
+    airplanelist.add(ap);
     return ap;
     
             
             
             
      }
-    public void setAirplane(ArrayList<Aeroplane> airplane) {
-        this.airplane = airplane;
-    }
+    //public void setAirplane(ArrayList<Aeroplane> airplanelist) {
+      //  this.airplanelist = airplanelist;
+   // }
     
 }

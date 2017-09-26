@@ -32,8 +32,8 @@ public class MainJFrame extends javax.swing.JFrame {
      * Creates new form MainJFrame
      */
     
-    private Aeroplanelist al;
-    public MainJFrame(Aeroplanelist al) {
+    public Aeroplanelist al;
+    public MainJFrame() {
         initComponents();
         al = new Aeroplanelist();
         
@@ -41,9 +41,13 @@ public class MainJFrame extends javax.swing.JFrame {
         
     }
 
-    private MainJFrame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    /*sprivate MainJFrame() {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }*/
+
+   // private MainJFrame() {
+      //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    //}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,6 +65,7 @@ public class MainJFrame extends javax.swing.JFrame {
         ImportDataBtn = new javax.swing.JButton();
         ViewUpdateBtn = new javax.swing.JButton();
         FilterBtn = new javax.swing.JButton();
+        createDatabtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -107,18 +112,27 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        createDatabtn.setText("create Data");
+        createDatabtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createDatabtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(FilterBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ViewUpdateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ImportDataBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(FilterBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(ViewUpdateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ImportDataBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(createDatabtn))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -130,7 +144,9 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(ViewUpdateBtn)
                 .addGap(33, 33, 33)
                 .addComponent(FilterBtn)
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(createDatabtn)
+                .addContainerGap(142, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel2);
@@ -150,42 +166,9 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ImportDataBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImportDataBtnActionPerformed
-
-        String[] s = null;
-        String inputline = " ";
-        Scanner ScanIn = null;
-        String filedestination = "/Users/aravind/Desktop/assgn2.csv";
+ImportPanel ip = new ImportPanel(al);
+jSplitPane1.setRightComponent(ip);
         
-        try
-          {
-            ScanIn = new Scanner(new BufferedReader(new FileReader(filedestination)));
-            while(ScanIn.hasNextLine())
-            {
-                Aeroplane ap = new Aeroplane();
-                inputline = ScanIn.nextLine();
-                s = inputline.split(",");
-                //ap = aL.addAddributes(); 
-                 ap = al.addAeroplanes();
-                ap.setSerialNumber(s[0]);
-                ap.setAirlinename(s[1]);
-                ap.setAirportName(s[2]);
-                ap.setAvailableStatus(s[3]);
-                ap.setDateofExpiry(s[4]); 
-                ap.setMaintanenceDate(s[5]);
-                ap.setManufacturerName(s[6]);
-                ap.setModelno(s[7]);
-                ap.setNoofseats(s[8]);
-                ap.setYearofManufacture(s[9]);
-                ap.setMaintanenceStatus(s[10]);
-            }
-             JOptionPane.showMessageDialog(null,"Data imported Successfully");
-          }
-        
-        catch(Exception e)
-        {
-            
-        }    
-        // TODO add your handling code here:
     }//GEN-LAST:event_ImportDataBtnActionPerformed
 
     private void ViewUpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewUpdateBtnActionPerformed
@@ -205,6 +188,13 @@ public class MainJFrame extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_FilterBtnActionPerformed
+
+    private void createDatabtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createDatabtnActionPerformed
+     CreateJPanel cp = new CreateJPanel(al);
+     jSplitPane1.setRightComponent(cp);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_createDatabtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -245,6 +235,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton FilterBtn;
     private javax.swing.JButton ImportDataBtn;
     private javax.swing.JButton ViewUpdateBtn;
+    private javax.swing.JButton createDatabtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

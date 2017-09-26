@@ -17,10 +17,11 @@ public class FilterJPanel extends javax.swing.JPanel {
      * Creates new form FilterJPanel
      */
     
-
+public Aeroplanelist al;
     public FilterJPanel(Aeroplanelist al) {
        initComponents();
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       this.al = al;
+       //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -52,7 +53,7 @@ public class FilterJPanel extends javax.swing.JPanel {
         AvailableSeatsTxtBox = new javax.swing.JTextField();
         AirportNameTxtBox = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        filtertabel = new javax.swing.JTable();
         applyFiltersBtn = new javax.swing.JButton();
 
         jLabel1.setText("Manufacturer :");
@@ -81,7 +82,7 @@ public class FilterJPanel extends javax.swing.JPanel {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        filtertabel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
@@ -100,7 +101,7 @@ public class FilterJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(filtertabel);
 
         applyFiltersBtn.setText("Apply Filters");
 
@@ -225,6 +226,7 @@ public class FilterJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField MinSeatsTxtBox;
     private javax.swing.JTextField SerialNoTxtBox;
     private javax.swing.JButton applyFiltersBtn;
+    private javax.swing.JTable filtertabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -236,6 +238,5 @@ public class FilterJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

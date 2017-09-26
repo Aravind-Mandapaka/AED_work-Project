@@ -5,44 +5,46 @@
  */
 package Business;
 
+
+
 /**
  *
  * @author aravind
  */
 public class Aeroplane {
-    private String serialNumber;
-    private String yearofManufacture;
-    private String noofseats;
+    private int serialNumber;
+    private int yearofManufacture;
+    private int noofseats;
     private String modelno;
-    private String dateofExpiry;
+ 
     private String airlinename;
-    private String maintanenceDate;
+  
     private String manufacturerName;
     private String availableStatus;
     private String maintanenceStatus;
     private String airportName;
 
-    public String getSerialNumber() {
+    public int getSerialNumber() {
         return serialNumber;
     }
 
-    public void setSerialNumber(String serialNumber) {
+    public void setSerialNumber(int serialNumber) {
         this.serialNumber = serialNumber;
     }
 
-    public String getYearofManufacture() {
+    public int getYearofManufacture() {
         return yearofManufacture;
     }
 
-    public void setYearofManufacture(String yearofManufacture) {
+    public void setYearofManufacture(int yearofManufacture) {
         this.yearofManufacture = yearofManufacture;
     }
 
-    public String getNoofseats() {
+    public int getNoofseats() {
         return noofseats;
     }
 
-    public void setNoofseats(String noofseats) {
+    public void setNoofseats(int noofseats) {
         this.noofseats = noofseats;
     }
 
@@ -54,28 +56,12 @@ public class Aeroplane {
         this.modelno = modelno;
     }
 
-    public String getDateofExpiry() {
-        return dateofExpiry;
-    }
-
-    public void setDateofExpiry(String dateofExpiry) {
-        this.dateofExpiry = dateofExpiry;
-    }
-
     public String getAirlinename() {
         return airlinename;
     }
 
     public void setAirlinename(String airlinename) {
         this.airlinename = airlinename;
-    }
-
-    public String getMaintanenceDate() {
-        return maintanenceDate;
-    }
-
-    public void setMaintanenceDate(String maintanenceDate) {
-        this.maintanenceDate = maintanenceDate;
     }
 
     public String getManufacturerName() {
@@ -109,6 +95,13 @@ public class Aeroplane {
     public void setAirportName(String airportName) {
         this.airportName = airportName;
     }
-    
+    @Override
+    public String toString()
+    {
+       String x = String.valueOf(serialNumber);
+       return x;
+        
+    }
+
     
 }
