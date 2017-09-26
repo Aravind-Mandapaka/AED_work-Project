@@ -6,6 +6,7 @@
 package Interface;
 import Business.Aeroplane;
 import Business.Aeroplanelist;
+import com.sun.glass.events.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -63,6 +64,12 @@ public class CreateJPanel extends javax.swing.JPanel {
 
         jLabel3.setText("Available Seats :");
 
+        AvailableSeatsTxtBox.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                AvailableSeatsTxtBoxKeyTyped(evt);
+            }
+        });
+
         jLabel4.setText("Serial No :");
 
         jLabel1.setText("Manufacturer :");
@@ -79,7 +86,19 @@ public class CreateJPanel extends javax.swing.JPanel {
 
         jLabel6.setText("Airport :");
 
+        MfgYearTxtBox.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                MfgYearTxtBoxKeyTyped(evt);
+            }
+        });
+
         jLabel7.setText("Manufacture Year :");
+
+        SerialNoTxtBox.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                SerialNoTxtBoxKeyTyped(evt);
+            }
+        });
 
         createBtn.setText("Create");
         createBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -234,6 +253,42 @@ public class CreateJPanel extends javax.swing.JPanel {
     
         // TODO add your handling code here:
     }//GEN-LAST:event_createBtnActionPerformed
+
+    private void AvailableSeatsTxtBoxKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AvailableSeatsTxtBoxKeyTyped
+
+ char ch = evt.getKeyChar();
+    if(!(Character.isDigit(ch)||(ch == KeyEvent.VK_DELETE)|| ch== KeyEvent.VK_BACKSPACE))
+    {
+      evt.consume();
+        JOptionPane.showMessageDialog(null,"Please enter data of type integer");
+        // TODO add your handling code here:
+    }           
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AvailableSeatsTxtBoxKeyTyped
+
+    private void SerialNoTxtBoxKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SerialNoTxtBoxKeyTyped
+ char ch = evt.getKeyChar();
+    if(!(Character.isDigit(ch)||(ch == KeyEvent.VK_DELETE)|| ch== KeyEvent.VK_BACKSPACE))
+    {
+      evt.consume();
+        JOptionPane.showMessageDialog(null,"Please enter data of type integer");
+        // TODO add your handling code here:
+    }           
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SerialNoTxtBoxKeyTyped
+
+    private void MfgYearTxtBoxKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MfgYearTxtBoxKeyTyped
+
+ char ch = evt.getKeyChar();
+    if(!(Character.isDigit(ch)||(ch == KeyEvent.VK_DELETE)|| ch== KeyEvent.VK_BACKSPACE))
+    {
+      evt.consume();
+        JOptionPane.showMessageDialog(null,"Please enter data of type integer");
+        // TODO add your handling code here:
+    }           
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MfgYearTxtBoxKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

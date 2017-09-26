@@ -5,7 +5,11 @@
  */
 package Interface;
 
+import Business.Aeroplane;
 import Business.Aeroplanelist;
+import com.sun.glass.events.KeyEvent;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -53,7 +57,7 @@ public Aeroplanelist al;
         AvailableSeatsTxtBox = new javax.swing.JTextField();
         AirportNameTxtBox = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        filtertabel = new javax.swing.JTable();
+        filtertable = new javax.swing.JTable();
         applyFiltersBtn = new javax.swing.JButton();
 
         jLabel1.setText("Manufacturer :");
@@ -82,7 +86,25 @@ public Aeroplanelist al;
             }
         });
 
-        filtertabel.setModel(new javax.swing.table.DefaultTableModel(
+        MfgYearTxtBox.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                MfgYearTxtBoxKeyTyped(evt);
+            }
+        });
+
+        SerialNoTxtBox.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                SerialNoTxtBoxKeyTyped(evt);
+            }
+        });
+
+        AvailableSeatsTxtBox.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                AvailableSeatsTxtBoxKeyTyped(evt);
+            }
+        });
+
+        filtertable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
@@ -101,9 +123,14 @@ public Aeroplanelist al;
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(filtertabel);
+        jScrollPane1.setViewportView(filtertable);
 
         applyFiltersBtn.setText("Apply Filters");
+        applyFiltersBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                applyFiltersBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -214,7 +241,53 @@ public Aeroplanelist al;
         // TODO add your handling code here:
     }//GEN-LAST:event_MfgNameTxtboxActionPerformed
 
+    private void applyFiltersBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_applyFiltersBtnActionPerformed
+        DefaultTableModel model = (DefaultTableModel)filtertable.getModel();
+        model.setRowCount(0);
+        
+        for(Aeroplane aep: al.getAirplanelist())
+        {
+    
+            if(checkCondition(aep.getSerialNumber(),SerialNoTxtBox.getText()));
+            
+        }
+    // TODO add your handling code here:
+    }//GEN-LAST:event_applyFiltersBtnActionPerformed
 
+    private void AvailableSeatsTxtBoxKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AvailableSeatsTxtBoxKeyTyped
+    char ch = evt.getKeyChar();
+    if(!(Character.isDigit(ch)||(ch == KeyEvent.VK_DELETE)|| ch== KeyEvent.VK_BACKSPACE))
+    {
+      evt.consume();
+        JOptionPane.showMessageDialog(null,"Please enter data of type integer");
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AvailableSeatsTxtBoxKeyTyped
+
+    private void SerialNoTxtBoxKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SerialNoTxtBoxKeyTyped
+
+ char ch = evt.getKeyChar();
+    if(!(Character.isDigit(ch)||(ch == KeyEvent.VK_DELETE)|| ch== KeyEvent.VK_BACKSPACE))
+    {
+      evt.consume();
+        JOptionPane.showMessageDialog(null,"Please enter data of type integer");
+        // TODO add your handling code here:
+    }           
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SerialNoTxtBoxKeyTyped
+
+    private void MfgYearTxtBoxKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MfgYearTxtBoxKeyTyped
+
+ char ch = evt.getKeyChar();
+    if(!(Character.isDigit(ch)||(ch == KeyEvent.VK_DELETE)|| ch== KeyEvent.VK_BACKSPACE))
+    {
+      evt.consume();
+        JOptionPane.showMessageDialog(null,"Please enter data of type integer");
+        // TODO add your handling code here:
+    }           
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MfgYearTxtBoxKeyTyped
+
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AirlineNameTxtBox;
     private javax.swing.JTextField AirportNameTxtBox;
@@ -226,7 +299,7 @@ public Aeroplanelist al;
     private javax.swing.JTextField MinSeatsTxtBox;
     private javax.swing.JTextField SerialNoTxtBox;
     private javax.swing.JButton applyFiltersBtn;
-    private javax.swing.JTable filtertabel;
+    private javax.swing.JTable filtertable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

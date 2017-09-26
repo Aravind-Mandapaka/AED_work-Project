@@ -158,6 +158,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="AvailableSeatsTxtBox">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="AvailableSeatsTxtBoxKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="MaintanenceCertificateTxtbox">
     </Component>
@@ -196,6 +199,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="MfgYearTxtBox">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="MfgYearTxtBoxKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="AirlineNameTxtBox">
     </Component>
@@ -205,6 +211,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="SerialNoTxtBox">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SerialNoTxtBoxKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="createBtn">
       <Properties>

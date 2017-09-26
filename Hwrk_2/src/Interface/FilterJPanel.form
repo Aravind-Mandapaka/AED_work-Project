@@ -204,6 +204,9 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="MfgYearTxtBox">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="MfgYearTxtBoxKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="MaintanenceCertificateTxtbox">
     </Component>
@@ -214,8 +217,14 @@
     <Component class="javax.swing.JTextField" name="AirlineNameTxtBox">
     </Component>
     <Component class="javax.swing.JTextField" name="SerialNoTxtBox">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SerialNoTxtBoxKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="AvailableSeatsTxtBox">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="AvailableSeatsTxtBoxKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="AirportNameTxtBox">
     </Component>
@@ -226,7 +235,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="filtertabel">
+        <Component class="javax.swing.JTable" name="filtertable">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="9" rowCount="4">
@@ -301,6 +310,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Apply Filters"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="applyFiltersBtnActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
