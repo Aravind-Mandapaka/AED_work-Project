@@ -272,7 +272,7 @@ public void addintoTable()
     }//GEN-LAST:event_MfgNameTxtboxActionPerformed
 
     private void ViewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewBtnActionPerformed
- int selectedrow=0;
+      int selectedrow=ViewupdateTable.getSelectedRow();
         if(selectedrow >=0)
        {
         

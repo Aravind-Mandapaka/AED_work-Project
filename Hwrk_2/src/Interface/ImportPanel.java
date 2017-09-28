@@ -76,22 +76,22 @@ public class ImportPanel extends javax.swing.JPanel {
 
     private void importBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importBtnActionPerformed
 
-String[] s = null;
+        String[] s = null;
         String inputline = " ";
         Scanner ScanIn = null;
         String filedestination = "//Users//aravind//Desktop//assgn2.csv";
-        
+        Aeroplane ap = new Aeroplane();
         try
           {
             ScanIn = new Scanner(new BufferedReader(new FileReader(filedestination)));
             while(ScanIn.hasNextLine())
             {
-                Aeroplane ap = new Aeroplane();
+                //Aeroplane ap = new Aeroplane();
                 inputline = ScanIn.nextLine();
                 s = inputline.split(",");
-                //ap = aL.addAddributes(); 
-                 ap = al.addAeroplanes();
+                ap = al.addAeroplanes();
                 ap.setSerialNumber(Integer.parseInt(s[0]));
+               // System.out.println(ap.getSerialNumber());
                 ap.setAirlinename(s[1]);
                 ap.setAirportName(s[2]);
                 ap.setAvailableStatus(s[3]);
@@ -100,6 +100,7 @@ String[] s = null;
                 ap.setNoofseats(Integer.parseInt(s[6]));
                 ap.setYearofManufacture(Integer.parseInt(s[7]));
                 ap.setMaintanenceStatus(s[8]);
+                
                 
             }
              JOptionPane.showMessageDialog(null,"Data imported Successfully");

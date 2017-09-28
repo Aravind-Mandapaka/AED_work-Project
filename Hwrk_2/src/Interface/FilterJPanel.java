@@ -8,6 +8,7 @@ package Interface;
 import Business.Aeroplane;
 import Business.Aeroplanelist;
 import com.sun.glass.events.KeyEvent;
+import com.sun.org.apache.xalan.internal.lib.ExsltDatetime;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -26,6 +27,13 @@ public Aeroplanelist al;
        initComponents();
        this.al = al;
        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    public boolean compare(String a ,String b)
+            
+    {
+        if(b.equals(""))
+            return true;
+        else return a.equalsIgnoreCase(b);
     }
 
     /**
@@ -50,8 +58,8 @@ public Aeroplanelist al;
         MfgNameTxtbox = new javax.swing.JTextField();
         MfgYearTxtBox = new javax.swing.JTextField();
         MaintanenceCertificateTxtbox = new javax.swing.JTextField();
-        MinSeatsTxtBox = new javax.swing.JTextField();
-        MaxSeatsTxtBox = new javax.swing.JTextField();
+        AvailablestatusTxtbox = new javax.swing.JTextField();
+        modelNoTxtbox = new javax.swing.JTextField();
         AirlineNameTxtBox = new javax.swing.JTextField();
         SerialNoTxtBox = new javax.swing.JTextField();
         AvailableSeatsTxtBox = new javax.swing.JTextField();
@@ -62,7 +70,7 @@ public Aeroplanelist al;
 
         jLabel1.setText("Manufacturer :");
 
-        jLabel2.setText("Max Seats :");
+        jLabel2.setText("Model No");
 
         jLabel3.setText("Available Seats :");
 
@@ -76,7 +84,7 @@ public Aeroplanelist al;
 
         jLabel8.setText("Maintanence Certificate :");
 
-        jLabel9.setText("Minimum Seats :");
+        jLabel9.setText("Available Status");
 
         jLabel10.setText("Filter By The Below Feilds");
 
@@ -112,7 +120,7 @@ public Aeroplanelist al;
                 {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Manufacturer", "Available Seats", "Serial No", "Airline", "Airport", "Mfg Year", "Max Seats", "Min Seats", "Maintanence"
+                "Serial Number", "Airline Name", "Airport Name", "Active Status", "Manufacturer Name", "Available Seats", "Manufacture year", "Maintanence Certificate", "Model Number"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -175,18 +183,18 @@ public Aeroplanelist al;
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                             .addComponent(jLabel2)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(MaxSeatsTxtBox, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(modelNoTxtbox, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                             .addComponent(jLabel9)
                                             .addGap(60, 60, 60)
-                                            .addComponent(MinSeatsTxtBox, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                            .addComponent(AvailablestatusTxtbox, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addComponent(jLabel6))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(215, 215, 215)
                         .addComponent(applyFiltersBtn)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,11 +229,11 @@ public Aeroplanelist al;
                         .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(MaxSeatsTxtBox, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(modelNoTxtbox, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
-                            .addComponent(MinSeatsTxtBox, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(AvailablestatusTxtbox, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(8, 8, 8)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
@@ -245,10 +253,64 @@ public Aeroplanelist al;
         DefaultTableModel model = (DefaultTableModel)filtertable.getModel();
         model.setRowCount(0);
         
+        
         for(Aeroplane aep: al.getAirplanelist())
         {
-    
-            if(checkCondition(aep.getSerialNumber(),SerialNoTxtBox.getText()));
+      String seats = String.valueOf(aep.getNoofseats());
+      String mfgyear = String.valueOf(aep.getYearofManufacture());
+      String serial = String.valueOf(aep.getSerialNumber());
+      
+      int a  =0;
+      if(!(MfgYearTxtBox.getText().equalsIgnoreCase("")))
+              {
+                 a = Integer.parseInt(MfgYearTxtBox.getText());
+              }
+      int b = 0;
+      if (!SerialNoTxtBox.getText().equalsIgnoreCase(""))
+      {
+          Integer.parseInt(SerialNoTxtBox.getText());
+      }
+      
+      int c =0;
+      if(!AvailableSeatsTxtBox.getText().equalsIgnoreCase(""))
+      {
+         Integer.parseInt(AvailableSeatsTxtBox.getText());
+      }
+          
+          //  if(checkCondition(aep.getSerialNumber(),SerialNoTxtBox.getText()));
+            if(compare(aep.getManufacturerName(),MfgNameTxtbox.getText()) 
+                    && compare(seats,AvailableSeatsTxtBox.getText() )
+                    && compare(aep.getAvailableStatus(),AvailablestatusTxtbox.getText()) 
+                    && compare(mfgyear,MfgYearTxtBox.getText())
+                    && compare(serial,SerialNoTxtBox.getText())
+                    && compare(aep.getModelno(),modelNoTxtbox.getText())
+                    && compare(aep.getAirlinename(),AirlineNameTxtBox.getText())
+                    && compare(aep.getAirportName(),AirportNameTxtBox.getText())
+                    && compare(aep.getMaintanenceStatus(),MaintanenceCertificateTxtbox.getText()))
+                    {
+                        
+                       Object row[] = new Object[12];
+                       row[0] = aep;
+                       row[1] = aep.getAirlinename();
+                       row[2] = aep.getAirportName();
+                       row[3] = aep.getAvailableStatus();
+                       row[4] =aep.getManufacturerName();
+                       //row[5] = aep.getModelno();
+                       row[5]= aep.getNoofseats();
+                       row[6] = aep.getYearofManufacture();
+                       row[7] = aep.getMaintanenceStatus();
+                       row[9] = aep.getSerialNumber();
+                       row[10] = aep.getModelno();
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       model.addRow(row);
+                       
+                    }
             
         }
     // TODO add your handling code here:
@@ -261,8 +323,9 @@ public Aeroplanelist al;
       evt.consume();
         JOptionPane.showMessageDialog(null,"Please enter data of type integer");
         // TODO add your handling code here:
+    }
     }//GEN-LAST:event_AvailableSeatsTxtBoxKeyTyped
-
+    
     private void SerialNoTxtBoxKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SerialNoTxtBoxKeyTyped
 
  char ch = evt.getKeyChar();
@@ -287,16 +350,15 @@ public Aeroplanelist al;
         // TODO add your handling code here:
     }//GEN-LAST:event_MfgYearTxtBoxKeyTyped
 
-    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AirlineNameTxtBox;
     private javax.swing.JTextField AirportNameTxtBox;
     private javax.swing.JTextField AvailableSeatsTxtBox;
+    private javax.swing.JTextField AvailablestatusTxtbox;
     private javax.swing.JTextField MaintanenceCertificateTxtbox;
-    private javax.swing.JTextField MaxSeatsTxtBox;
     private javax.swing.JTextField MfgNameTxtbox;
     private javax.swing.JTextField MfgYearTxtBox;
-    private javax.swing.JTextField MinSeatsTxtBox;
     private javax.swing.JTextField SerialNoTxtBox;
     private javax.swing.JButton applyFiltersBtn;
     private javax.swing.JTable filtertable;
@@ -311,5 +373,12 @@ public Aeroplanelist al;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField modelNoTxtbox;
     // End of variables declaration//GEN-END:variables
+
+    private static class row {
+
+        public row() {
+        }
+    }
 }
