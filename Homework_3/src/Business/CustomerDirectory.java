@@ -17,7 +17,7 @@ public class CustomerDirectory {
     
     public CustomerDirectory()
     {
-    Customer cust = new Customer();
+     customerlist = new ArrayList<Customer>();
     
     
     }

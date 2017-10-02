@@ -18,7 +18,7 @@ public class Seat {
      Customer customer;
       public Seat()
       {
-        Customer cst = new Customer();
+        customer = new Customer();
       
       
       }     

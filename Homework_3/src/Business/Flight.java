@@ -21,9 +21,9 @@ FlightSchedule flightsch;
 public Flight()
 
 {
-    FlightSchedule fch = new FlightSchedule();
-    ArrayList<Seat> seat = new ArrayList<Seat>();
-    FlightSchedule fs = new FlightSchedule();
+     flightsch = new FlightSchedule();
+    seatslist = new ArrayList<Seat>();
+    //FlightSchedule fs = new FlightSchedule();
    
 }
     public Seat addseat()

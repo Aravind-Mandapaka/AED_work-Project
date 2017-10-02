@@ -28,9 +28,9 @@ private ArrayList<Flight> flightlist;
 
 public Aeroplane()
 {
-      ArrayList<Flight> fl = new ArrayList<Flight>();
+      //ArrayList<Flight> fl = new ArrayList<Flight>();
       
-
+flightlist = new ArrayList<Flight>();
 }
  public Flight addflight()
  {

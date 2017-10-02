@@ -17,7 +17,7 @@ public class MasterSchedule {
    
    public MasterSchedule()
    {
-   ArrayList<FlightSchedule> flight = new ArrayList<FlightSchedule>();
+    flightschedule = new ArrayList<FlightSchedule>();
    }
     public FlightSchedule addflightschdeule()
     {

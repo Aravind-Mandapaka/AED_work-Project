@@ -21,10 +21,10 @@ public class TravelAgency {
      
     public TravelAgency()
     {
-    MasterSchedule msch = new MasterSchedule();
-    CustomerDirectory custdir = new CustomerDirectory();
-        ArrayList<Airliner> air = new ArrayList<Airliner>();
-    
+     mastersch = new MasterSchedule();
+     customerdir = new CustomerDirectory();
+        //ArrayList<Airliner> air = new ArrayList<Airliner>();
+    airlinerlist = new ArrayList<Airliner>();
     }
     public Airliner addairliner()
     {

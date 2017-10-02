@@ -12,11 +12,12 @@ import java.util.ArrayList;
  * @author aravind
  */
 public class Fleet {
-    private ArrayList<Aeroplane> aeroplanelist;
+     ArrayList<Aeroplane> aeroplanelist;
     
     public Fleet()
     {
-    Fleet f = new Fleet();
+   aeroplanelist = new ArrayList<Aeroplane>();
+        //Fleet f = new Fleet();
     
     }
  public Aeroplane addaeroplane()

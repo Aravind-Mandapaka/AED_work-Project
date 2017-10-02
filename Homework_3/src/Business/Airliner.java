@@ -19,7 +19,7 @@ public class Airliner {
     //private ArrayList<FlightSchedule> flightschedule;
     public Airliner()
     {
-        Fleet fleet = new Fleet();
+         fleetlist = new Fleet();
         
     }
 
