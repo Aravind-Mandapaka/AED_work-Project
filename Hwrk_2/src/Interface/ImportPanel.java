@@ -79,7 +79,9 @@ public class ImportPanel extends javax.swing.JPanel {
         String[] s = null;
         String inputline = " ";
         Scanner ScanIn = null;
-        String filedestination = "//Users//aravind//Desktop//assgn2.csv";
+        String filedestination = "/Users/aravind/Desktop/AED CSVs/assgn2.csv";
+        
+                //Users//aravind//Desktop//assgn2.csv
         Aeroplane ap = new Aeroplane();
         try
           {

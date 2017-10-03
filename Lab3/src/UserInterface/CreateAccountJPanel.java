@@ -10,7 +10,7 @@ import Business.AccountDirectory;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
+import com.sun.glass.events.KeyEvent;
 /**
  *
  * @author aravind
@@ -64,6 +64,12 @@ public class CreateAccountJPanel extends javax.swing.JPanel {
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Account Number:");
+
+        txtRoutingNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRoutingNumberActionPerformed(evt);
+            }
+        });
 
         txtBalance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,6 +179,56 @@ public class CreateAccountJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_txtBalanceActionPerformed
 
+    private void txtRoutingNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRoutingNumberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRoutingNumberActionPerformed
+
+    
+    
+    
+    private void txtAccountNumberKeyTyped(java.awt.event.KeyEvent evt) {                                              
+
+ char ch = evt.getKeyChar();
+    if(!(Character.isDigit(ch)||(ch == KeyEvent.VK_DELETE)|| ch== KeyEvent.VK_BACKSPACE))
+    {
+      evt.consume();
+        JOptionPane.showMessageDialog(null,"Please enter data of type integer");
+        // TODO add your handling code here:
+    }           
+        // TODO add your handling code here:
+    }            
+    
+    
+    
+    private void txtBalanceKeyTyped(java.awt.event.KeyEvent evt) {                                              
+
+ char ch = evt.getKeyChar();
+    if(!(Character.isDigit(ch)||(ch == KeyEvent.VK_DELETE)|| ch== KeyEvent.VK_BACKSPACE))
+    {
+      evt.consume();
+        JOptionPane.showMessageDialog(null,"Please enter data of type integer");
+        // TODO add your handling code here:
+    }           
+        // TODO add your handling code here:
+    }            
+    
+    
+    private void RoutingNumberBoxKeyTyped(java.awt.event.KeyEvent evt) {                                              
+
+ char ch = evt.getKeyChar();
+    if(!(Character.isDigit(ch)||(ch == KeyEvent.VK_DELETE)|| ch== KeyEvent.VK_BACKSPACE))
+    {
+      evt.consume();
+        JOptionPane.showMessageDialog(null,"Please enter data of type integer");
+        // TODO add your handling code here:
+    }           
+        // TODO add your handling code here:
+    }            
+    
+    
+    
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
