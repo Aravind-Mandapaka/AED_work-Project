@@ -30,6 +30,8 @@ public class Mainclass {
   String file1 = "/Users/aravind/Desktop/AED CSVs/Asgn3/AirplaneDeatils.csv";
   String file2 = "/Users/aravind/Desktop/AED CSVs/Asgn3/CustomerDetails.csv";
   String file3 = "/Users/aravind/Desktop/AED CSVs/Asgn3/FlightDetails.csv";
+  //String file3 = "/Users/aravind/Desktop/FlightDetails.csv";
+  
   
   BufferedReader br = null;
   BufferedReader br1 = null;
@@ -55,21 +57,25 @@ public class Mainclass {
            ap.setModelNumber(airlinerdetails[2]);
            ap.setAirport(airlinerdetails[3]);
            ap.setYear(Integer.parseInt(airlinerdetails[4]));
+           //System.out.println("inside airlinlist");
            
            br1 = new BufferedReader(new FileReader(file3));
            while ((line2 = br1.readLine())!=null)
            {
                String[] flightDetails = line2.split(splitby);
-               if(airlinerdetails[0].equals(flightDetails[0]))
+               if(airlinerdetails[2].equals(flightDetails[0]))
                {
                    Flight f1 = ap.addflight();
                    f1.setFightno(flightDetails[0]);
                    f1.getFlightsch().setDestination(flightDetails[1]);
                    f1.getFlightsch().setOrigin(flightDetails[2]);
-                   f1.getFlightsch().setEnddate(new SimpleDateFormat("dd-MM-yyyy").parse(flightDetails[2]));
-                   f1.getFlightsch().setStartdate(new SimpleDateFormat("dd-MM-yyyy").parse(flightDetails[3]));
-                   
-                   br2 = new BufferedReader(new FileReader(file2));
+                   f1.getFlightsch().setEnddate(new SimpleDateFormat("dd-MM-yyyy").parse(flightDetails[3]));
+                   f1.getFlightsch().setStartdate(new SimpleDateFormat("dd-MM-yyyy").parse(flightDetails[4]));
+                  
+                  //System.out.println("values inside flight set properly");
+                 
+                  
+                  br2 = new BufferedReader(new FileReader(file2));
                    while ((line3 = br2.readLine())!=null)
                    {
                        String[] seatDetails = line2.split(splitby);
@@ -78,10 +84,12 @@ public class Mainclass {
                            Seat s1 = f1.addseat();
                            s1.setFlightno(seatDetails[0]);
                            s1.setSeattype(seatDetails[1]);
-                           s1.setCost(Integer.parseInt(seatDetails[5]));
-                           s1.getCustomer().setAge(Integer.parseInt(seatDetails[2]));
-                           s1.getCustomer().setName(seatDetails[3]);
-                           s1.getCustomer().setFlightno(seatDetails[4]);
+
+                           s1.setCost(Integer.parseInt(seatDetails[2]));
+                           s1.getCustomer().setAge(Integer.parseInt(seatDetails[3]));
+                           s1.getCustomer().setName(seatDetails[4]);
+                          // s1.getCustomer().setFlightno(seatDetails[4]);
+                           System.out.println("values set propeprly");
                            
                        }
                    }
@@ -91,15 +99,12 @@ public class Mainclass {
            }  
                
        }  
-      
-       
-       
        int sum=0; int windowsum=0; int count=0;
             int middlesum=0; int count1=0;
             int aislesum=0; int count2=0;
             int window=1000;
-            int middle=100;
-            int aisle=10;
+            int middle=500;
+            int aisle=200;
             for(Airliner air:ta.getAirlinerlist())
             {
                 
@@ -108,15 +113,18 @@ public class Mainclass {
                for(Aeroplane ap :air.getFleetlist().getAeroplanelist())
                {
                    System.out.println("Model Number:" + ap.getModelNumber() + " " + "Manufacturer:" + ap.getManufacturer() + " " + "Manufacture Year:" 
-                   + ap.getYear()+ " " + "Airport name" + ap.getAirport());
+                   + ap.getYear()+ " " + "Airport name: " + ap.getAirport());
                    
-                for(Flight fll : ap.getFlightlist())
+                for(Flight f1 : ap.getFlightlist())
                 {
-                    System.out.println("Flight Number:" + fll.getFightno()+ " " + "From Location:" + fll.getFlightsch().getOrigin()
-                    + " " + "Start Date:" + fll.getFlightsch().getStartdate()+ " " + "To Location:" + fll.getFlightsch().getDestination()+ " " + "Reach Date:" 
-                            + fll.getFlightsch().getEnddate());
                     
-                 for(Seat ss : fll.getSeatslist())
+                    
+                    //System.out.println("inside flight");
+                  //  System.out.println("Flight Number:" + f1.getFightno()+ " " + "From Location:" + fll.getFlightsch().getOrigin()
+                   // + " " + "Start Date:" + fll.getFlightsch().getStartdate()+ " " + "To Location:" + fll.getFlightsch().getDestination()+ " " + "Reach Date:" 
+                         //   + fll.getFlightsch().getEnddate());
+                    
+                 for(Seat ss : f1.getSeatslist())
                  {
                      System.out.println("Seat Location:" + ss.getSeattype()+ " " + " Name:" + ss.getCustomer().getName()+ " " + "Age:"
                      + ss.getCustomer().getAge()+ " " + "Price:" + ss.getCost());
@@ -150,7 +158,7 @@ public class Mainclass {
             System.out.println("Number of Aisle seaters:" +count2 + " " + "Aisle Revenue:" + aislesum);
             
             int totalrevenue = 0;
-            String csvfile3 = "PersonDetails.csv";
+            String csvfile3 = "CustomerDetails.csv";
             br = new BufferedReader(new FileReader(csvfile3));
             String line4 = "";
             
