@@ -27,15 +27,16 @@ public class Mainclass {
     
   public static void main(String[] args) throws IOException, ParseException
   {
-  String file1 = "/Users/aravind/Desktop/AED CSVs/Asgn3/AirplaneDeatils.csv";
-  String file2 = "/Users/aravind/Desktop/AED CSVs/Asgn3/CustomerDetails.csv";
-  String file3 = "/Users/aravind/Desktop/AED CSVs/Asgn3/FlightDetails.csv";
+  String file1 = "AirplaneDeatils.csv";
+  String file2 = "CustomerDetails.csv";
+  String file3 = "FlightDetails.csv";
   //String file3 = "/Users/aravind/Desktop/FlightDetails.csv";
   
   
   BufferedReader br = null;
   BufferedReader br1 = null;
   BufferedReader br2 = null;
+  BufferedReader br3= null;
   
   String line1 = "";
   String line2 = "";
@@ -78,7 +79,7 @@ public class Mainclass {
                   br2 = new BufferedReader(new FileReader(file2));
                    while ((line3 = br2.readLine())!=null)
                    {
-                       String[] seatDetails = line2.split(splitby);
+                       String[] seatDetails = line3.split(splitby);
                        if(flightDetails[0].equals(seatDetails[0]))
                        {
                            Seat s1 = f1.addseat();
@@ -89,7 +90,7 @@ public class Mainclass {
                            s1.getCustomer().setAge(Integer.parseInt(seatDetails[3]));
                            s1.getCustomer().setName(seatDetails[4]);
                           // s1.getCustomer().setFlightno(seatDetails[4]);
-                           System.out.println("values set propeprly");
+                           //System.out.println("values set propeprly");
                            
                        }
                    }
@@ -158,19 +159,20 @@ public class Mainclass {
             System.out.println("Number of Aisle seaters:" +count2 + " " + "Aisle Revenue:" + aislesum);
             
             int totalrevenue = 0;
-            String csvfile3 = "CustomerDetails.csv";
-            br = new BufferedReader(new FileReader(csvfile3));
+            
+            br3 = new BufferedReader(new FileReader(file2));
             String line4 = "";
             
-            BufferedReader br3 = null;
+           
             List <Integer> rev = new ArrayList<Integer>();
             List <String> str = new ArrayList<String>();
-            while ((line3 = br.readLine()) != null) 
+            while ((line4 = br3.readLine()) != null) 
             {
              String[] a1 = line4.split(splitby);
              
-             rev.add(Integer.parseInt(a1[5]));
-             str.add(a1[6]);
+             rev.add(Integer.parseInt(a1[2]));
+             str.add(a1[5]);
+               // System.out.println(str);
             }
             
            int sum1=0;
@@ -184,7 +186,7 @@ public class Mainclass {
                 {
                     sum1+=rev.get(i);
                 }
-                if(str1.equalsIgnoreCase("ethiad"))
+                if(str1.equalsIgnoreCase("etihad"))
                 {
                     sum2+=rev.get(i);
                 }
