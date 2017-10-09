@@ -153,10 +153,10 @@ public class Mainclass {
                 
                 
             }
-            System.out.println("Total Revenue:" + sum);
+          /* System.out.println("Total Revenue:" + sum);
             System.out.println("Number of window seaters:" +count + " " + "Window Revenue:" + windowsum);
             System.out.println("Number of Middle seaters:" +count1 + " " + "Middle Revenue:" + middlesum);
-            System.out.println("Number of Aisle seaters:" +count2 + " " + "Aisle Revenue:" + aislesum);
+            System.out.println("Number of Aisle seaters:" +count2 + " " + "Aisle Revenue:" + aislesum);*/
             
             int totalrevenue = 0;
             
