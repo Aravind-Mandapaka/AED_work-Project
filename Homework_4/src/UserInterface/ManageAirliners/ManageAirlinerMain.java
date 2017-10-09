@@ -44,8 +44,8 @@ public class ManageAirlinerMain extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         Airlinenametable = new javax.swing.JTable();
-        createAirlinerBtn = new javax.swing.JButton();
-        createFlightBtn = new javax.swing.JButton();
+        manageFlightsBtn = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -110,41 +110,25 @@ public class ManageAirlinerMain extends javax.swing.JPanel {
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 30, 150, 140));
 
-        createAirlinerBtn.setText("Manage Flights");
-        createAirlinerBtn.addActionListener(new java.awt.event.ActionListener() {
+        manageFlightsBtn.setText("Manage Flights");
+        manageFlightsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createAirlinerBtnActionPerformed(evt);
+                manageFlightsBtnActionPerformed(evt);
             }
         });
-        add(createAirlinerBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, -1, -1));
+        add(manageFlightsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, -1, -1));
 
-        createFlightBtn.setText("create flight");
-        createFlightBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createFlightBtnActionPerformed(evt);
-            }
-        });
-        add(createFlightBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, -1, -1));
+        jButton1.setText("create Airliner");
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void createAirlinerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAirlinerBtnActionPerformed
+    private void manageFlightsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageFlightsBtnActionPerformed
      ManageFlightMain panel1 = new ManageFlightMain(MainpageRight, travelagency);
      MainpageRight.add("CreateNewAirliner", panel1);
      CardLayout layout = (CardLayout)MainpageRight.getLayout();
         layout.next(MainpageRight);
         // TODO add your handling code here:
-    }//GEN-LAST:event_createAirlinerBtnActionPerformed
-
-    private void createFlightBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createFlightBtnActionPerformed
-     
-        
-        CreateNewFlight panel2 = new CreateNewFlight(MainpageRight, travelagency);
-     MainpageRight.add("CreateNewFlight", panel2);
-     CardLayout layout = (CardLayout)MainpageRight.getLayout();
-        layout.next(MainpageRight);
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_createFlightBtnActionPerformed
+    }//GEN-LAST:event_manageFlightsBtnActionPerformed
  public void populatetable()
  {
  DefaultTableModel dtm = (DefaultTableModel)Airlinenametable.getModel();
@@ -160,12 +144,12 @@ public class ManageAirlinerMain extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Airlinenametable;
-    private javax.swing.JButton createAirlinerBtn;
-    private javax.swing.JButton createFlightBtn;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton manageAirlinerBtn;
+    private javax.swing.JButton manageFlightsBtn;
     // End of variables declaration//GEN-END:variables
 }

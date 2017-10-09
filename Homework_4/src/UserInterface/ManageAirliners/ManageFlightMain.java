@@ -7,6 +7,7 @@ package UserInterface.ManageAirliners;
 
 import Business.Airliner;
 import Business.TravelAgency;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -39,12 +40,20 @@ private JPanel mainpageRight;
 
         airlinerNameLabel = new javax.swing.JLabel();
         airlineNameTxtBox = new javax.swing.JTextField();
+        createFlightBtn = new javax.swing.JButton();
 
         airlinerNameLabel.setText("AirlinerName");
 
         airlineNameTxtBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 airlineNameTxtBoxActionPerformed(evt);
+            }
+        });
+
+        createFlightBtn.setText("create flight");
+        createFlightBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createFlightBtnActionPerformed(evt);
             }
         });
 
@@ -56,8 +65,10 @@ private JPanel mainpageRight;
                 .addGap(203, 203, 203)
                 .addComponent(airlinerNameLabel)
                 .addGap(52, 52, 52)
-                .addComponent(airlineNameTxtBox, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(371, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(createFlightBtn)
+                    .addComponent(airlineNameTxtBox, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(365, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -66,7 +77,9 @@ private JPanel mainpageRight;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(airlinerNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(airlineNameTxtBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(386, Short.MAX_VALUE))
+                .addGap(74, 74, 74)
+                .addComponent(createFlightBtn)
+                .addContainerGap(283, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -74,9 +87,21 @@ private JPanel mainpageRight;
         // TODO add your handling code here:
     }//GEN-LAST:event_airlineNameTxtBoxActionPerformed
 
+    private void createFlightBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createFlightBtnActionPerformed
+    //JPanel MainpageRight;
+
+        CreateNewFlight panel2 = new CreateNewFlight(mainpageRight, travelagency);
+        mainpageRight.add("CreateNewFlight", panel2);
+        CardLayout layout = (CardLayout)mainpageRight.getLayout();
+        layout.next(mainpageRight);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_createFlightBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField airlineNameTxtBox;
     private javax.swing.JLabel airlinerNameLabel;
+    private javax.swing.JButton createFlightBtn;
     // End of variables declaration//GEN-END:variables
 }

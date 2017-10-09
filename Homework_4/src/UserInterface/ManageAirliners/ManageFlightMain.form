@@ -20,8 +20,11 @@
               <EmptySpace min="-2" pref="203" max="-2" attributes="0"/>
               <Component id="airlinerNameLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-              <Component id="airlineNameTxtBox" min="-2" pref="114" max="-2" attributes="0"/>
-              <EmptySpace pref="371" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="createFlightBtn" min="-2" max="-2" attributes="0"/>
+                  <Component id="airlineNameTxtBox" min="-2" pref="114" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="365" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -33,7 +36,9 @@
                   <Component id="airlinerNameLabel" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                   <Component id="airlineNameTxtBox" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="386" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+              <Component id="createFlightBtn" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="283" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -47,6 +52,14 @@
     <Component class="javax.swing.JTextField" name="airlineNameTxtBox">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="airlineNameTxtBoxActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="createFlightBtn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="create flight"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="createFlightBtnActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
