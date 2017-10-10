@@ -10,6 +10,7 @@ import Business.AirPlane;
 import Business.Person;
 import Business.Seat;
 import Business.TravelAgency;
+import com.sun.glass.events.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -102,7 +103,19 @@ public class BookCustomersJPanel extends javax.swing.JPanel {
 
         jLabel10.setText("Age");
 
+        txtAge.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAgeKeyTyped(evt);
+            }
+        });
+
         jLabel11.setText("Seat No");
+
+        txtSeatNo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSeatNoKeyTyped(evt);
+            }
+        });
 
         btnBook.setText("Book Flight");
         btnBook.addActionListener(new java.awt.event.ActionListener() {
@@ -249,6 +262,10 @@ public class BookCustomersJPanel extends javax.swing.JPanel {
 
     private void btnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookActionPerformed
         // TODO add your handling code here:
+        if(!txtAge.getText().isEmpty()&& !txtFirstName.getText().isEmpty()
+                && !txtLastName.getText().isEmpty()&& !txtSeatNo.getText().isEmpty()
+                && !txtSex.getText().isEmpty())
+        {
         Person person=travelAgency.getCustomerDirectory().addPerson();
         person.setFirstName(txtFirstName.getText());
         person.setLastName(txtLastName.getText());
@@ -258,6 +275,7 @@ public class BookCustomersJPanel extends javax.swing.JPanel {
         Seat seat=airPlane.getFlight().addSeat();
         seat.setSeatNo(txtSeatNo.getText());
         person.setSeat(seat);
+        
         
         JOptionPane.showMessageDialog(this, "Seat has been booked in this flight!");
         
@@ -273,8 +291,10 @@ public class BookCustomersJPanel extends javax.swing.JPanel {
                 row1[5] = airPlane.getFlight().getFlightSchedule().getDestination();
                 
                 dtm.addRow(row1); 
-        
-        
+        }
+        else
+        {JOptionPane.showMessageDialog(this, "Please enter the Customer details completely!");
+        }
        
         
         //dtm.
@@ -296,6 +316,31 @@ public class BookCustomersJPanel extends javax.swing.JPanel {
         
         
     }//GEN-LAST:event_btnBookActionPerformed
+
+    private void txtAgeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAgeKeyTyped
+
+
+char ch = evt.getKeyChar();
+    if(!(Character.isDigit(ch)||(ch == KeyEvent.VK_DELETE)|| ch== KeyEvent.VK_BACKSPACE))
+    {
+      evt.consume();
+        JOptionPane.showMessageDialog(null,"Please enter data of type integer");
+        // TODO add your handling code here:
+    }        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAgeKeyTyped
+
+    private void txtSeatNoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSeatNoKeyTyped
+
+char ch = evt.getKeyChar();
+    if(!(Character.isDigit(ch)||(ch == KeyEvent.VK_DELETE)|| ch== KeyEvent.VK_BACKSPACE))
+    {
+      evt.consume();
+        JOptionPane.showMessageDialog(null,"Please enter data of type integer");
+        // TODO add your handling code here:
+    }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSeatNoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

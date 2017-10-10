@@ -223,6 +223,9 @@ public class CreateNewFlightJPanel extends javax.swing.JPanel {
 
     private void btnCreateAirplaneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAirplaneActionPerformed
         // TODO add your handling code here:
+        if(!txtDestination.getText().isEmpty()&& !txtManfacturer.getText().isEmpty()&&
+                !txtSource.getText().isEmpty()&& !txtmodelNo.getText().isEmpty()&& !txtManYear.getText().isEmpty())
+        {
         AirPlane airplane=airliner.getFleet().addAirPlane();
         airplane.setModelNumber(txtmodelNo.getText());
         airplane.setManufacturer(txtManfacturer.getText());
@@ -233,6 +236,10 @@ public class CreateNewFlightJPanel extends javax.swing.JPanel {
         flightSchedule.setDestination(txtDestination.getText());
         airplane.getFlight().setFlightSchedule(flightSchedule);
         JOptionPane.showMessageDialog(null, "Flight has been created!");
+        }
+        else
+        {JOptionPane.showMessageDialog(null, "Enter values in all the given fields");
+        }
     }//GEN-LAST:event_btnCreateAirplaneActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
