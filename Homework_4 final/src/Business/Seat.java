@@ -7,7 +7,7 @@ package Business;
 
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class Seat {
     private String seatNo;
@@ -36,6 +36,11 @@ public class Seat {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+    
+    @Override
+    public String toString() {
+        return this.seatNo;
     }
     
     

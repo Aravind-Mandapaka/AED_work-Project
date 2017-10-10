@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class ManageFlightWorkAreaJPanel extends javax.swing.JPanel {
 
@@ -41,29 +41,29 @@ public class ManageFlightWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        btnCreateNewAirPlane = new javax.swing.JButton();
+        btnCreateNewFlight = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         airLinerLabel = new javax.swing.JLabel();
-        btnViewAirplanes = new javax.swing.JButton();
+        btnViewFlights = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Manage Flights");
 
-        btnCreateNewAirPlane.setText("Create new airplane");
-        btnCreateNewAirPlane.addActionListener(new java.awt.event.ActionListener() {
+        btnCreateNewFlight.setText("Create New Flight");
+        btnCreateNewFlight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateNewAirPlaneActionPerformed(evt);
+                btnCreateNewFlightActionPerformed(evt);
             }
         });
 
         jLabel2.setText("Airliner");
 
-        btnViewAirplanes.setText("View Airplanes");
-        btnViewAirplanes.addActionListener(new java.awt.event.ActionListener() {
+        btnViewFlights.setText("View Flights");
+        btnViewFlights.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewAirplanesActionPerformed(evt);
+                btnViewFlightsActionPerformed(evt);
             }
         });
 
@@ -89,8 +89,8 @@ public class ManageFlightWorkAreaJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(117, 117, 117)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnViewAirplanes)
-                            .addComponent(btnCreateNewAirPlane, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnViewFlights)
+                            .addComponent(btnCreateNewFlight, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnBack)))
@@ -109,30 +109,30 @@ public class ManageFlightWorkAreaJPanel extends javax.swing.JPanel {
                         .addGap(16, 16, 16)
                         .addComponent(airLinerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(31, 31, 31)
-                .addComponent(btnCreateNewAirPlane)
+                .addComponent(btnCreateNewFlight)
                 .addGap(27, 27, 27)
-                .addComponent(btnViewAirplanes)
+                .addComponent(btnViewFlights)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnBack)
                 .addContainerGap(265, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCreateNewAirPlaneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateNewAirPlaneActionPerformed
+    private void btnCreateNewFlightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateNewFlightActionPerformed
         // TODO add your handling code here:
         CreateNewFlightJPanel panel = new CreateNewFlightJPanel(userProcessContainer, travelAgency, airliner);
         userProcessContainer.add("CreateNewAirlineJPanel", panel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnCreateNewAirPlaneActionPerformed
+    }//GEN-LAST:event_btnCreateNewFlightActionPerformed
 
-    private void btnViewAirplanesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAirplanesActionPerformed
+    private void btnViewFlightsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewFlightsActionPerformed
         // TODO add your handling code here:
         ViewFlightsJPanel panel = new ViewFlightsJPanel(userProcessContainer, travelAgency, airliner);
         userProcessContainer.add("ViewFlightsJPanel", panel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnViewAirplanesActionPerformed
+    }//GEN-LAST:event_btnViewFlightsActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
@@ -145,8 +145,8 @@ public class ManageFlightWorkAreaJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel airLinerLabel;
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnCreateNewAirPlane;
-    private javax.swing.JButton btnViewAirplanes;
+    private javax.swing.JButton btnCreateNewFlight;
+    private javax.swing.JButton btnViewFlights;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

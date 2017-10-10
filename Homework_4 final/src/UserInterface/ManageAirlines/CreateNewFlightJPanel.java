@@ -9,6 +9,7 @@ import Business.AirLiner;
 import Business.AirPlane;
 import Business.FlightSchedule;
 import Business.TravelAgency;
+import com.sun.glass.events.KeyEvent;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JOptionPane;
@@ -16,7 +17,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class CreateNewFlightJPanel extends javax.swing.JPanel {
 
@@ -48,6 +49,10 @@ public class CreateNewFlightJPanel extends javax.swing.JPanel {
        btnCreateAirplane.setEnabled(false);
        txtSource.setEnabled(false);
        txtDestination.setEnabled(false);
+       
+       txtmodelNo.setText(airPlane.getModelNumber());
+        txtManYear.setText(String.valueOf(airPlane.getManufacturedYear()));
+        txtManfacturer.setText(airPlane.getManufacturer());
     }
 
     /**
@@ -78,7 +83,7 @@ public class CreateNewFlightJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Create AirPlane");
+        jLabel1.setText("Create flight");
 
         jLabel2.setText("Airliner Name");
 
@@ -94,6 +99,12 @@ public class CreateNewFlightJPanel extends javax.swing.JPanel {
 
         jLabel5.setText("Manufactured year");
 
+        txtManYear.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtManYearKeyTyped(evt);
+            }
+        });
+
         jLabel6.setText("Source");
 
         jLabel7.setText("Destination");
@@ -104,7 +115,7 @@ public class CreateNewFlightJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnCreateAirplane.setText("Create Airplane");
+        btnCreateAirplane.setText("Create Flight");
         btnCreateAirplane.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateAirplaneActionPerformed(evt);
@@ -161,7 +172,7 @@ public class CreateNewFlightJPanel extends javax.swing.JPanel {
                         .addComponent(btnCreateAirplane)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnUpdate)))
-                .addContainerGap(323, Short.MAX_VALUE))
+                .addContainerGap(339, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,7 +232,7 @@ public class CreateNewFlightJPanel extends javax.swing.JPanel {
         flightSchedule.setSource(txtSource.getText());
         flightSchedule.setDestination(txtDestination.getText());
         airplane.getFlight().setFlightSchedule(flightSchedule);
-        JOptionPane.showMessageDialog(null, "Airplane has been created!");
+        JOptionPane.showMessageDialog(null, "Flight has been created!");
     }//GEN-LAST:event_btnCreateAirplaneActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -237,14 +248,24 @@ public class CreateNewFlightJPanel extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        txtmodelNo.setText(airPlane.getModelNumber());
-        txtManYear.setText(String.valueOf(airPlane.getManufacturedYear()));
-        txtManfacturer.setText(airPlane.getManufacturer());
+        
         airPlane.setModelNumber(txtmodelNo.getText());
         airPlane.setManufacturer(txtManfacturer.getText());
         airPlane.setManufacturedYear(Integer.parseInt(txtManYear.getText()));
-        JOptionPane.showMessageDialog(null, "Airplane has been created!");
+        JOptionPane.showMessageDialog(null, "Flight has been Updated!");
     }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void txtManYearKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtManYearKeyTyped
+
+char ch = evt.getKeyChar();
+    if(!(Character.isDigit(ch)||(ch == KeyEvent.VK_DELETE)|| ch== KeyEvent.VK_BACKSPACE))
+    {
+      evt.consume();
+        JOptionPane.showMessageDialog(null,"Please enter data of type integer");
+        // TODO add your handling code here:
+    }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtManYearKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

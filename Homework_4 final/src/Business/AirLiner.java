@@ -7,7 +7,7 @@ package Business;
 
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class AirLiner {
     private String airLinerName;

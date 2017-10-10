@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class ManageTravelAgencyWorkAreaJPanel extends javax.swing.JPanel {
 

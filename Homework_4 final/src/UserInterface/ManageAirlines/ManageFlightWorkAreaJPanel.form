@@ -28,8 +28,8 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnViewAirplanes" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnCreateNewAirPlane" min="-2" pref="193" max="-2" attributes="0"/>
+                          <Component id="btnViewFlights" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnCreateNewFlight" min="-2" pref="193" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -57,9 +57,9 @@
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Component id="btnCreateNewAirPlane" min="-2" max="-2" attributes="0"/>
+              <Component id="btnCreateNewFlight" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Component id="btnViewAirplanes" min="-2" max="-2" attributes="0"/>
+              <Component id="btnViewFlights" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnBack" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="265" max="32767" attributes="0"/>
@@ -77,12 +77,12 @@
         <Property name="text" type="java.lang.String" value="Manage Flights"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnCreateNewAirPlane">
+    <Component class="javax.swing.JButton" name="btnCreateNewFlight">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Create new airplane"/>
+        <Property name="text" type="java.lang.String" value="Create New Flight"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateNewAirPlaneActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateNewFlightActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
@@ -92,12 +92,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="airLinerLabel">
     </Component>
-    <Component class="javax.swing.JButton" name="btnViewAirplanes">
+    <Component class="javax.swing.JButton" name="btnViewFlights">
       <Properties>
-        <Property name="text" type="java.lang.String" value="View Airplanes"/>
+        <Property name="text" type="java.lang.String" value="View Flights"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewAirplanesActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewFlightsActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnBack">

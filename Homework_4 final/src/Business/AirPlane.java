@@ -7,7 +7,7 @@ package Business;
 
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class AirPlane {
     private String modelNumber;

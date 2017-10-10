@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class FlightSchedule {
     private String source;
@@ -30,4 +30,10 @@ public class FlightSchedule {
     public void setDestination(String destination) {
         this.destination = destination;
     }
+//    @Override
+//    public String toString() {
+//        return this.destination;
+//    //      return this.source;
+//    }
+    
 }

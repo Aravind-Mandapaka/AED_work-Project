@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class TravelAgency {
     private MasterTravelSchedule masterTravelSchedule;

@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class ViewFlightsJPanel extends javax.swing.JPanel {
 
@@ -77,7 +77,7 @@ public class ViewFlightsJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("View AirPlanes");
+        jLabel1.setText("View Flights of below Airliner");
 
         jLabel2.setText("Airliner Name");
 
@@ -154,6 +154,8 @@ public class ViewFlightsJPanel extends javax.swing.JPanel {
             AirPlane airplane = (AirPlane) airPlanesTable.getValueAt(selectedRow, 0);
         CreateNewFlightJPanel panel = new CreateNewFlightJPanel(userProcessContainer, travelAgency, airliner, airplane);
         userProcessContainer.add("ViewFlightsJPanel", panel);
+      //  airplane.setModelNumber(txt);
+        
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
         }
