@@ -16,13 +16,13 @@ public class Person {
     private String firstName;
     private String lastName;
     private String address;
+    private int age;
      
-    private UserAccount useraccount;
+    //private UserAccount useraccount;
 
-    public Person() {
+   // public Person() {
         
-        useraccount = new UserAccount();
-    }
+   // }
 
     public String getFirstName() {
         return firstName;
@@ -48,10 +48,20 @@ public class Person {
         this.address = address;
     }
 
-    public UserAccount getUseraccount() {
-        return useraccount;
+    
+
+    public int getAge() {
+        return age;
     }
 
-    
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return this.firstName;
+//To change body of generated methods, choose Tools | Templates.
+    }
     
 }

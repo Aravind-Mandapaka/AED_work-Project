@@ -37,15 +37,15 @@ public class PersonDirectory {
         personDirectory.remove(p);
     }
     
-    /*public Person searchPerson(int id) {
+    public Person searchPerson(String lastName) {
         //ArrayList<Product> result = new ArrayList<Product>();
         for(Person p : personDirectory) {
-            if(p.getModelNumber() == id) {
+            if(p.getLastName()== lastName) {
                 return p;
             }
         }
         return null;
-    }*/
     
+    }
     
 }

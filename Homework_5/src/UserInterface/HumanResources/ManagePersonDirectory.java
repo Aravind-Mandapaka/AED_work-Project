@@ -5,6 +5,14 @@
  */
 package UserInterface.HumanResources;
 
+import Business.Business;
+import Business.HumanResources.Person;
+import Business.SystemAdmin.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author aravind
@@ -14,10 +22,17 @@ public class ManagePersonDirectory extends javax.swing.JPanel {
     /**
      * Creates new form ManagePersonDirectory
      */
-    public ManagePersonDirectory() {
-        initComponents();
-    }
+    
+   JPanel MainPageRight;
+   Business business;
 
+    ManagePersonDirectory(JPanel MainPageRight, Business business) {
+        this.MainPageRight=MainPageRight;
+        this.business=business;
+        initComponents(); 
+        
+        populateTable();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,19 +42,149 @@ public class ManagePersonDirectory extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnUpdatePerson = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        personsTable = new javax.swing.JTable();
+        btnNewPerson = new javax.swing.JButton();
+
+        btnUpdatePerson.setText("Update Person>>");
+        btnUpdatePerson.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdatePersonActionPerformed(evt);
+            }
+        });
+
+        btnBack.setText("<<Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Manage Person Directory");
+
+        personsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "First Name", "Last Name", "Username"
+            }
+        ));
+        jScrollPane1.setViewportView(personsTable);
+
+        btnNewPerson.setText("New Person>>");
+        btnNewPerson.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewPersonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(200, 200, 200)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(btnBack)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnUpdatePerson, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnNewPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(258, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(61, 61, 61)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnNewPerson)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnUpdatePerson)
+                    .addComponent(btnBack))
+                .addContainerGap(232, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnUpdatePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdatePersonActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = personsTable.getSelectedRow();
+
+        if (selectedRow >= 0) {
+            Person p = (Person) personsTable.getValueAt(selectedRow, 0);
+
+            UpdatePerson panel = new UpdatePerson(MainPageRight, business, p);
+            MainPageRight.add("UpdatePerson", panel);
+            CardLayout layout = (CardLayout) MainPageRight.getLayout();
+            layout.next(MainPageRight);
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a person");
+        }
+    }//GEN-LAST:event_btnUpdatePersonActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        MainPageRight.remove(this);
+        CardLayout layout = (CardLayout) MainPageRight.getLayout();
+        layout.previous(MainPageRight);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnNewPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewPersonActionPerformed
+        // TODO add your handling code here:
+        AddPerson panel = new AddPerson(MainPageRight, business);
+        MainPageRight.add("AddPerson", panel);
+        CardLayout layout = (CardLayout) MainPageRight.getLayout();
+        layout.next(MainPageRight);
+    }//GEN-LAST:event_btnNewPersonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnNewPerson;
+    private javax.swing.JButton btnUpdatePerson;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable personsTable;
     // End of variables declaration//GEN-END:variables
+
+    public void populateTable() {
+        
+        int rowCount = personsTable.getRowCount();
+        DefaultTableModel dtm = (DefaultTableModel) personsTable.getModel();
+        for(int i = rowCount - 1; i >=0; i--) {
+            dtm.removeRow(i);
+        }
+        for (Person person : business.getPersonDirectory().getPersonDirectory()) {
+            Object[] row = new Object[3];
+            row[0] = person;
+            row[1] = person.getLastName();
+            
+            for (UserAccount ua : business.getUserAccountDirectory().getUserAccountDirectorylist()) {
+                if (ua.getPerson().equals(person)) {
+                    row[2] = ua.getUserName();
+                }
+            }
+            
+            if (row[2] == null) {
+                row[2] = "---";
+            }
+            
+            dtm.addRow(row);
+        }
+        
+    }
 }

@@ -5,6 +5,10 @@
  */
 package UserInterface;
 
+import Business.Business;
+import Business.ConfigureABusiness;
+import java.awt.CardLayout;
+
 /**
  *
  * @author aravind
@@ -14,8 +18,11 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
+    
+    private Business business;
     public MainJFrame() {
         initComponents();
+        business = ConfigureABusiness.Initialize("Business");
     }
 
     /**
@@ -29,13 +36,18 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        RIghtPageMain = new javax.swing.JPanel();
+        loginBtn = new javax.swing.JButton();
+        MainPageRight = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(900, 600));
 
-        jButton1.setText("login");
+        loginBtn.setText("login");
+        loginBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -43,21 +55,21 @@ public class MainJFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(loginBtn)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(139, 139, 139)
-                .addComponent(jButton1)
+                .addComponent(loginBtn)
                 .addContainerGap(507, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
 
-        RIghtPageMain.setLayout(new java.awt.CardLayout());
-        jSplitPane1.setRightComponent(RIghtPageMain);
+        MainPageRight.setLayout(new java.awt.CardLayout());
+        jSplitPane1.setRightComponent(MainPageRight);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,6 +88,16 @@ public class MainJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
+
+     LoginPage lpage = new LoginPage(MainPageRight, business);
+     MainPageRight.add("loginPage", lpage);
+     CardLayout layout = (CardLayout) MainPageRight.getLayout();
+     layout.next(MainPageRight);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loginBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -113,9 +135,9 @@ public class MainJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel RIghtPageMain;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel MainPageRight;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JButton loginBtn;
     // End of variables declaration//GEN-END:variables
 }

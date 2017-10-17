@@ -5,6 +5,14 @@
  */
 package UserInterface;
 
+import Business.Business;
+import Business.SystemAdmin.UserAccount;
+import UserInterface.HumanResources.HumanResourcesWorkArea;
+import UserInterface.SystemAdmin.SystemAdminWorkArea;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author aravind
@@ -14,8 +22,13 @@ public class LoginPage extends javax.swing.JPanel {
     /**
      * Creates new form LoginPage
      */
-    public LoginPage() {
-        initComponents();
+    
+    JPanel MainPageRight;
+    Business business;
+    LoginPage(JPanel MainPageRight, Business business) {
+     initComponents();
+     this.MainPageRight= MainPageRight;
+     this.business = business;
     }
 
     /**
@@ -39,6 +52,11 @@ public class LoginPage extends javax.swing.JPanel {
         jLabel2.setText("Password");
 
         LoginBtn.setText("login");
+        LoginBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoginBtnActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel3.setText("Please enter your username and password");
@@ -85,6 +103,46 @@ public class LoginPage extends javax.swing.JPanel {
                 .addContainerGap(234, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void LoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBtnActionPerformed
+
+    if(!userNameTxtBox.getText().isEmpty() && !PasswordTxtBox.getText().isEmpty())
+    {
+     UserAccount ua = business.getUserAccountDirectory().checkvalidUser(userNameTxtBox.getText(), PasswordTxtBox.getText());
+     
+     if(ua!= null)
+     {
+     if(ua.getRole().equals("System Admin"))
+         
+       {
+           
+     SystemAdminWorkArea systemadminpanel = new SystemAdminWorkArea(MainPageRight, business, ua);
+     MainPageRight.add("SysytemAdminWorkArea",systemadminpanel );
+     CardLayout layout = (CardLayout) MainPageRight.getLayout();
+     layout.next(MainPageRight);
+     
+       }
+     else
+         {
+          
+     HumanResourcesWorkArea humanresourcespanel = new HumanResourcesWorkArea(MainPageRight, business,ua);
+     MainPageRight.add("HumanResourcePanel", humanresourcespanel);
+     CardLayout layout = (CardLayout) MainPageRight.getLayout();
+     layout.next(MainPageRight);
+         }
+     
+     }
+     else{
+     JOptionPane.showMessageDialog(null,"please enter valid username and password");
+     }
+    }
+    else
+    {
+        JOptionPane.showMessageDialog(null,"please enter username and password");
+    }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LoginBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

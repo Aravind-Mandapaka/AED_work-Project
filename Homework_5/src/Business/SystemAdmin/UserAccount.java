@@ -5,6 +5,8 @@
  */
 package Business.SystemAdmin;
 
+import Business.HumanResources.Person;
+
 /**
  *
  * @author aravind
@@ -15,7 +17,22 @@ public class UserAccount {
     private String userName;
     private String password;
     private String role;
+    private Person person;
+    private String status;
+    public UserAccount() {
+    
+    person = new Person();
+    }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    
     public String getUserName() {
         return userName;
     }
@@ -39,5 +56,16 @@ public class UserAccount {
     public void setRole(String role) {
         this.role = role;
     }
-    
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+    @Override
+    public String toString() {
+        return getUserName(); //To change body of generated methods, choose Tools | Templates.
+    }
 }

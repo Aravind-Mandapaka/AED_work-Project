@@ -14,24 +14,38 @@ import java.util.ArrayList;
 public class UserAccountDirectory {
  
     
-    private ArrayList<UserAccount> userAccountDirectory;
+    private ArrayList<UserAccount> userAccountDirectorylist;
 
     public UserAccountDirectory() {
         
-        userAccountDirectory = new ArrayList<UserAccount>();
+        userAccountDirectorylist = new ArrayList<UserAccount>();
         
         
     }
-    
-    
-    
+
+    public ArrayList<UserAccount> getUserAccountDirectorylist() {
+        return userAccountDirectorylist;
+    }
+
     public UserAccount addUserAccount() {
         UserAccount p = new UserAccount();
-        userAccountDirectory.add(p);
+        userAccountDirectorylist.add(p);
         return p;
     }
     
     public void removeUserAcoount(UserAccount p) {
-        userAccountDirectory.remove(p);
+        userAccountDirectorylist.remove(p);
     }
+    public UserAccount checkvalidUser(String username, String password)
+    {
+    for(UserAccount ua: userAccountDirectorylist)
+    {
+      if(ua.getUserName().equals(username)&& ua.getPassword().equals(password))
+      {
+      return ua;
+      }
+    }
+    return null;
+    }
+    
 }
