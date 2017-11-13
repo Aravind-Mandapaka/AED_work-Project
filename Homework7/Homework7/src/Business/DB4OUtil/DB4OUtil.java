@@ -15,7 +15,7 @@ import java.text.ParseException;
  */
 public class DB4OUtil {
 
-    private static final String FILENAME = "/Users/aravind/AED/db4o-8.0.249.16098-all-java5.jar"; // path to the data store
+    private static final String FILENAME = "/Users/aravind/AED/db4o-8.0.249.16098-all-java5"; // path to the data store
     private static DB4OUtil dB4OUtil;
     
     public synchronized static DB4OUtil getInstance(){
