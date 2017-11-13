@@ -40,7 +40,6 @@ public class MainJFrame extends javax.swing.JFrame {
         MainPageRight = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(900, 600));
 
         loginBtn.setText("login");
         loginBtn.addActionListener(new java.awt.event.ActionListener() {

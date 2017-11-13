@@ -140,6 +140,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtManfacturer">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtManfacturerActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>

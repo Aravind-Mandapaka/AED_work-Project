@@ -97,6 +97,12 @@ public class CreateNewFlightJPanel extends javax.swing.JPanel {
 
         jLabel3.setText("Manufacturer");
 
+        txtManfacturer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtManfacturerActionPerformed(evt);
+            }
+        });
+
         jLabel5.setText("Manufactured year");
 
         txtManYear.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -273,6 +279,10 @@ char ch = evt.getKeyChar();
     }
         // TODO add your handling code here:
     }//GEN-LAST:event_txtManYearKeyTyped
+
+    private void txtManfacturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtManfacturerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtManfacturerActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

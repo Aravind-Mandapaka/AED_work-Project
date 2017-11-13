@@ -60,7 +60,7 @@ public class ConfigureABusiness {
         }
         
         
-         Person p4 = pd.searchPerson("Mandapaka"); 
+         Person p4 = pd.searchPerson("mandapaka"); 
         
         if (p4!=null)
         {
