@@ -15,7 +15,7 @@ import Business.EnterPrice.EnterPrise;
 public class EnterPriseDirectory {
     
     private ArrayList<EnterPrise> enterpriseList;
-
+//arraylist of enterprise
     public ArrayList<EnterPrise> getEnterpriseList() {
         return enterpriseList;
     }

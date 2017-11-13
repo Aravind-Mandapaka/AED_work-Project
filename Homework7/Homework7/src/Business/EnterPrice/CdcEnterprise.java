@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * @author aravind
  */
 public class CdcEnterprise extends EnterPrise {
-
+//tyep of enterprise which is cdc, its name and getter method of super classs
     public CdcEnterprise(String name) {
          super(name,EnterpriseType.CDC);
     }

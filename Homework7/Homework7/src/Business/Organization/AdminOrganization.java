@@ -17,7 +17,7 @@ public class AdminOrganization extends Organization{
     public AdminOrganization() {
         super(Type.Admin.getValue());
     }
-    
+    //adm,in organization which has organization as super class and get supported role method from it
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList<>();

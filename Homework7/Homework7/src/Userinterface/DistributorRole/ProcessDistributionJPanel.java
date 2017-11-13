@@ -5,7 +5,10 @@
  */
 package Userinterface.DistributorRole;
 
+//import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
+
 import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
+
 
 /**
  *
@@ -62,4 +65,14 @@ public class ProcessDistributionJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField resultJTextField;
     private javax.swing.JButton submitJButton1;
     // End of variables declaration//GEN-END:variables
+
+    private static class request {
+
+        private static void setStatus(String deliverd) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        public request() {
+        }
+    }
 }

@@ -14,6 +14,7 @@ public class Disease {
     String diseaseName;
     String diagnosis;
     int vaccineSugg;
+    //disease names diagnosis and vacciensuggested and their setters and egtters
 
     public String getDiseaseName() {
         return diseaseName;

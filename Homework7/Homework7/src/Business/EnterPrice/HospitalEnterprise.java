@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class HospitalEnterprise extends EnterPrise{
     
-
+//hospirta;l enterprose which has enterspise as super class
 public HospitalEnterprise(String name)
 {
     super(name,EnterpriseType.Hospital);

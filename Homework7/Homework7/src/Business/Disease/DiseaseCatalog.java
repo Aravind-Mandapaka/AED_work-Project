@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class DiseaseCatalog {
     ArrayList<Disease> diseaseList;
-    
+    //arraylist of diseases
     public DiseaseCatalog()
     {
             diseaseList =new ArrayList<Disease>();
@@ -26,7 +26,7 @@ public class DiseaseCatalog {
     public void setDiseaseList(ArrayList<Disease> diseaseList) {
         this.diseaseList = diseaseList;
     }
-    
+    //add diseases
     public Disease addDisease()
     {
         Disease d = new Disease();

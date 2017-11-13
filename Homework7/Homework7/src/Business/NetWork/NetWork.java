@@ -11,6 +11,8 @@ import Business.EnterPrice.EnterPriseDirectory;
  *
  * @author aravind
  */
+
+//network which has collection of enterprises i.e the whole enterprise directory
 public class NetWork {
     
     private String name;

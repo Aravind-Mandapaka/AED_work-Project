@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * @author aravind
  */
 public class PhdEnterprise extends EnterPrise {
-
+//another type of wnterprise which extends enterprisew
     public PhdEnterprise(String name) {
         super(name, EnterpriseType.PHD);
     }

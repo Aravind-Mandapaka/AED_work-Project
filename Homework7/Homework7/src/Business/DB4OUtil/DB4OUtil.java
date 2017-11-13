@@ -30,7 +30,7 @@ public class DB4OUtil {
             conn.close();
         }
     }
-
+//creating a connection
     private ObjectContainer createConnection() {
         try {
 
@@ -51,7 +51,7 @@ public class DB4OUtil {
         }
         return null;
     }
-
+//store system in the connection
     public synchronized void storeSystem(EcoSystem system) {
         ObjectContainer conn = createConnection();
         conn.store(system);

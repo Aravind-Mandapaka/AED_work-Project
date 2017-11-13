@@ -15,7 +15,7 @@ public abstract class EnterPrise extends Organization {
     private EnterpriseType enterpriseType;
     
     private OrganizationDirectory organizationDirectory;
-    
+    //enterprise which has organization as super classs and setters getters followed
     public enum EnterpriseType{
         Hospital("Hospital"),
         PHD("Public Health Department"),
