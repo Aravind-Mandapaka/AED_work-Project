@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class AcceptOrderJPanel extends javax.swing.JPanel {
 

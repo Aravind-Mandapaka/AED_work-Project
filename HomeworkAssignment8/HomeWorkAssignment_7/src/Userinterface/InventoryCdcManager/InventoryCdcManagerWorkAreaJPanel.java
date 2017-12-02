@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class InventoryCdcManagerWorkAreaJPanel extends javax.swing.JPanel {
 

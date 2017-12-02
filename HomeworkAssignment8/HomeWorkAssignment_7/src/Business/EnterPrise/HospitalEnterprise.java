@@ -9,7 +9,7 @@ import Business.Role.Role;
 import java.util.ArrayList;
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class HospitalEnterprise extends EnterPrise{
     

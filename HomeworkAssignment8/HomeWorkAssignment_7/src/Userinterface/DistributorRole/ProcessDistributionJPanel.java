@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class ProcessDistributionJPanel extends javax.swing.JPanel {
 

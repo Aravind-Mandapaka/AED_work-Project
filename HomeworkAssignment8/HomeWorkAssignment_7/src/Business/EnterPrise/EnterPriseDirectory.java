@@ -10,7 +10,7 @@ import Business.EnterPrise.EnterPrise;
 
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class EnterPriseDirectory {
     

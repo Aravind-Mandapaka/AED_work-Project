@@ -19,7 +19,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class ProcessOrderFromCdcJPanel extends javax.swing.JPanel {
 

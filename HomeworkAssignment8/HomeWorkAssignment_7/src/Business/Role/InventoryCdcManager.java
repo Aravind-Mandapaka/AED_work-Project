@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class InventoryCdcManager extends Role {
 

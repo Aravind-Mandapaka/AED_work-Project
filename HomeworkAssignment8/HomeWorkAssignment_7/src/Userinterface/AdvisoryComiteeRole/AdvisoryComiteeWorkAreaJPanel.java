@@ -23,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class AdvisoryComiteeWorkAreaJPanel extends javax.swing.JPanel {
 

@@ -18,7 +18,7 @@ import Userinterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
 
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 

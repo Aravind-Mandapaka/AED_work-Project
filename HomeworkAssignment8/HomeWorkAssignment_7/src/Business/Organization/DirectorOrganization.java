@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class DirectorOrganization extends Organization{
 

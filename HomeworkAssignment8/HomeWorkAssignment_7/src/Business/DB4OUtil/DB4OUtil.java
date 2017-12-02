@@ -11,11 +11,11 @@ import java.text.ParseException;
 
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class DB4OUtil {
 
-    private static final String FILENAME = "C:\\Users\\pruth\\Documents\\BaluNetBeansProjects\\AED_Project_8\\AED_Project_8\\DataBank.db4o"; // path to the data store
+    private static final String FILENAME = "DataBank"; // path to the data store
     private static DB4OUtil dB4OUtil;
     
     public synchronized static DB4OUtil getInstance(){

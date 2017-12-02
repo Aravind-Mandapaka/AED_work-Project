@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 
 /**
  *
- * @author pruth
+ * @author aravind  
  */
 public class ConfigureASystem {
     

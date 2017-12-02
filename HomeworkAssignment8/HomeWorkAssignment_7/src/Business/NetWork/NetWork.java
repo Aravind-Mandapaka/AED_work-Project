@@ -9,7 +9,7 @@ import Business.EnterPrise.EnterPriseDirectory;
 
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class NetWork {
     

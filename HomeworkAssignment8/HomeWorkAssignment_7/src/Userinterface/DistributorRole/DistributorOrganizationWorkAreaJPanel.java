@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class DistributorOrganizationWorkAreaJPanel extends javax.swing.JPanel {
 

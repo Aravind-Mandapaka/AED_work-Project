@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class DirectorOrganisationWorkAreaJPanel extends javax.swing.JPanel {
 

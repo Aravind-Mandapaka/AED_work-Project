@@ -7,7 +7,7 @@ package Business.WorkQueue;
 
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class VaccineRequestToDirector {
     

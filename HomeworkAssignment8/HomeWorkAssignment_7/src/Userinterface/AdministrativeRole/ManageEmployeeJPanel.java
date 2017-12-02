@@ -14,7 +14,7 @@ import jdk.nashorn.internal.objects.NativeRegExp;
 
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class ManageEmployeeJPanel extends javax.swing.JPanel {
 
@@ -202,15 +202,15 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         Organization organization = (Organization) organizationEmpJComboBox.getSelectedItem();
         String name = nameJTextField.getText();
         boolean x = true;
-        for (Employee employee : organization.getEmployeeDirectory().getEmployeeList()) {
-            if (employee.equals(name)) {
-                return x= false;
+       /* for (Employee employee : organization.getEmployeeDirectory().getEmployeeList()) {
+        //    if (employee.equals(name)) {
+           //     return x= false;
                 
             }
-        }
-        if (x != false) {
+        }*/
+      //  if (x != false) {
             organization.getEmployeeDirectory().createEmployee(name);
-        }
+       // }
     }//GEN-LAST:event_addJButtonActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed

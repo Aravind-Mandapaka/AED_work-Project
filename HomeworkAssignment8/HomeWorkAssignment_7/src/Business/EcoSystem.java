@@ -15,7 +15,7 @@ import Business.Vaccine.VaccineCatalog;
 import java.util.ArrayList;
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class EcoSystem extends Organization{
 

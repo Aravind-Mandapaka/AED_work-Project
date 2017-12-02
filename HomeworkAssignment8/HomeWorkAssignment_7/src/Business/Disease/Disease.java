@@ -7,7 +7,7 @@ package Business.Disease;
 
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class Disease {
     

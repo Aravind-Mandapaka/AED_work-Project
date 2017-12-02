@@ -9,7 +9,7 @@ import Business.UserAccount.UserAccount;
 
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class VaccineRequest extends WorkRequest {
     private String vaccineName;

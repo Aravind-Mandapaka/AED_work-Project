@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public class DistributionOrganization extends Organization{
 

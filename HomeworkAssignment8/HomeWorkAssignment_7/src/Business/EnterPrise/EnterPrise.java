@@ -8,7 +8,7 @@ import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 /**
  *
- * @author pruth
+ * @author aravind
  */
 public abstract class EnterPrise extends Organization {
    
